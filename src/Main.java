@@ -80,46 +80,54 @@ public class Main {
         panel = new JPanel();
         panel.setLayout(null);
         panel.setBackground(Color.WHITE);
+        //panel.setBounds(0,0,500,500);
+        panel.setVisible(true);
         frame.add(panel);
         frame.setVisible(true);
+
 
         JPanel container = new JPanel();
         BoxLayout bl = new BoxLayout(container, BoxLayout.Y_AXIS);
         container.setLayout(bl);
+        container.setBackground(Color.decode("#ffffff"));
 
 
 
         JScrollPane scrollPane = new JScrollPane(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-        scrollPane.setBounds(152,305,1118,500);
+        scrollPane.setBounds(152,305,1133,500);
         scrollPane.getViewport().setBackground(Color.decode("#ffffff"));
         scrollPane.setForeground(Color.decode("#ffffff"));
         scrollPane.setBorder(null);
         scrollPane.setVisible(true);
+        scrollPane.getVerticalScrollBar().setBackground(Color.WHITE);
 
-        JButton btn1 = new JButton("Button 1");
-        btn1.setBackground(Color.decode("#D4AF37"));
-        btn1.setMaximumSize(new Dimension(1092, 187));
-        btn1.setPreferredSize(new Dimension(1092,187));
+        JButton btn1 = new JButton();
+        btn1.setBackground(Color.decode("#ffffff"));
+
+        btn1.setBounds(15,15,1088,187);
         btn1.setAlignmentX(JButton.CENTER_ALIGNMENT);
         btn1.setVisible(true);
+        btn1.setBorder(BorderFactory.createLineBorder(Color.decode("#D4AF37")));
 
-        JPanel btn1_panel = new JPanel();
-        //btn1_panel.setLayout(null);
-        /*
-        JLabel name = new JLabel("Pizzeria");
+        JLayeredPane btn1_panel = new JLayeredPane();
+
+
+
+        JLabel name = new JLabel("Pizzeria Figio");
         name.setFont(new Font("Open Sans",Font.PLAIN, 32));
-        name.setBounds(192,340,901,54);
+        name.setBounds(35,35,901,41);
+
+        JLabel essensrichtung = new JLabel("italienisch");
+        essensrichtung.setFont(new Font("Open Sans",Font.PLAIN, 24));
+        essensrichtung.setBounds(35,94,901,18);
 
 
 
         btn1_panel.add(name,JLayeredPane.PALETTE_LAYER);
-
-         */
-
+        btn1_panel.add(essensrichtung,JLayeredPane.PALETTE_LAYER);
 
         btn1_panel.add(btn1,JLayeredPane.DEFAULT_LAYER);
         btn1_panel.setVisible(true);
-        //btn1_panel.setBounds(0,0,1092, 187);
 
         container.add(btn1_panel);
 
@@ -127,9 +135,11 @@ public class Main {
 
 
         container.setVisible(true);
-        //container.setAlignmentX(Component.CENTER_ALIGNMENT);
         scrollPane.setViewportView(container);
         panel.add(scrollPane);
+
+
+
 
         panel.validate();
         panel.repaint();
